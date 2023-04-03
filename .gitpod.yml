@@ -1,4 +1,4 @@
-image: gitpod/workspace-dotnet
+image: gitpod/workspace-dotnet:2023-01-10-16-35-53
 
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
@@ -8,13 +8,12 @@ tasks:
       sudo dpkg -i packages-microsoft-prod.deb
       sudo apt-get install -y apt-transport-https
       sudo apt-get update
-      sudo apt-get install dotnet-sdk-3.1
+      sudo apt-get install -y dotnet-sdk-3.1
       dotnet restore
       cd DemoServer
       npm install --legacy-peer-deps
       npm run webpack
     command: |
-      cd DemoServer
       RAVENDEMO_Database__Urls__0="http://live-test.ravendb.net" RAVENDEMO_Database__Name="Demo" dotnet run
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
