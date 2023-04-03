@@ -11,7 +11,7 @@ tasks:
       sudo apt-get install dotnet-sdk-3.1
       dotnet restore
       cd DemoServer
-      npm install
+      npm install --legacy-peer-deps
       npm run webpack
     command: |
       cd DemoServer
