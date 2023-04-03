@@ -1,0 +1,22 @@
+image: gitpod/workspace-dotnet
+
+# List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
+tasks:
+  - name: Dotnet Run
+    init: |  # runs during prebuild => https://www.gitpod.io/docs/configure/projects/prebuilds
+      dotnet restore
+      cd DemoServer
+      npm install
+      npm run webpack
+    command: |
+      cd DemoServer
+      RAVENDEMO_Database__Urls__0="http://live-test.ravendb.net" RAVENDEMO_Database__Name="Demo" dotnet run
+
+# List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
+ports:
+  - name: Frontend
+    description: Port 9090 for the frontend
+    port: 9090
+    onOpen: open-preview
+
+# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
