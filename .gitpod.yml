@@ -1,4 +1,5 @@
-image: gitpod/workspace-dotnet
+image:
+  file: .gitpod.Dockerfile
 
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
@@ -10,7 +11,7 @@ tasks:
       npm run webpack
     command: |
       cd DemoServer
-      RAVENDEMO_Database__Urls__0="http://live-test.ravendb.net" RAVENDEMO_Database__Name="Demo" dotnet run
+      dotnet run
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 ports:
